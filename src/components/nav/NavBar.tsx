@@ -1,5 +1,5 @@
 import Link  from "next/link";
-import { FaCarCrash } from "react-icons/fa";
+import { FaCar } from "react-icons/fa";
 
 export default function NavBar() {
   return (
@@ -28,27 +28,27 @@ export default function NavBar() {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a>Item 1</a>
+                <Link href="/vehiculos">Vehiculos</Link>
               </li>
               <li>
-                <a>Item 3</a>
+                <Link href="/nosotros">Nosotros</Link>
               </li>
             </ul>
           </div>
           <Link className="btn btn-ghost text-gray-600" href="/">
-          <FaCarCrash size={25}/> AYA RENTAL
+          <FaCar size={25}/> AYA RENTAL
           </Link>
         </div>
         <div className="navbar-center hidden text-gray-700  lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Vehiculos</a>
+              <Link href="/vehiculos">Vehiculos</Link>
             </li>
             <li>
-              <a>Nosotros</a>
+              <Link href="/nosotros">Nosotros</Link>
             </li>
             <li>
-              <a>Contacto</a>
+              <Link href="/contacto">Contacto</Link>
             </li>
           </ul>
         </div>

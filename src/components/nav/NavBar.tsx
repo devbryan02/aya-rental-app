@@ -28,7 +28,7 @@ export default function NavBar() {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link href="/vehiculos">Vehiculos</Link>
+                <Link href="/vehiculos/todos">Vehiculos</Link>
               </li>
               <li>
                 <Link href="/nosotros">Nosotros</Link>
@@ -42,7 +42,7 @@ export default function NavBar() {
         <div className="navbar-center hidden text-gray-700  lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link href="/vehiculos">Vehiculos</Link>
+              <Link href="/vehiculos/todos">Vehiculos</Link>
             </li>
             <li>
               <Link href="/nosotros">Nosotros</Link>

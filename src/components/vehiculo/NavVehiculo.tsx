@@ -7,8 +7,15 @@ import Link from "next/link";
 export default function NavVehiculo() {
   return (
     <>
-      <div className="mt-5 md:mt-3 flex gap-5 justify-center md:justify-end items-center">
-        <ul className="menu bg-transparent menu-horizontal">
+      <div className="mt-5 md:mt-3 flex flex-wrap gap-5 justify-center md:justify-end items-center">
+        <ul className="menu bg-transparent menu-vertical md:menu-horizontal">
+        <li>
+            <Link className="text-gray-600" href="/vehiculos/todos">
+              <FaCarSide size={20} />
+              Todos los vehiculos
+              <span className="badge badge-sm">+22</span>
+            </Link>
+          </li>
           <li>
             <Link className="text-gray-600" href="/vehiculos/autos">
               <FaCarSide size={20} />

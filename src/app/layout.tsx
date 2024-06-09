@@ -26,9 +26,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <div className="flex flex-col px-3 pt-3">
         <NavBar />
-        </div>
         {children}
       </body>
     </html>

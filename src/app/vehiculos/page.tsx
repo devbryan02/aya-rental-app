@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function ComponenteVehiculo() {
   return (
     <>
-    <h1>vehiclulos</h1>
+    
     </>
   );
 }

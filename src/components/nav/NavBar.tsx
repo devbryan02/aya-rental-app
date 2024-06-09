@@ -4,7 +4,7 @@ import { FaCar } from "react-icons/fa";
 export default function NavBar() {
   return (
     <>
-      <div className="navbar bg-gray-100 rounded">
+      <div className="navbar bg-gray-100">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

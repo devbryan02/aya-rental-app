@@ -1,8 +1,10 @@
-import Autos from "@/components/vehiculo/Autos"
+import VehiculoAuto from "@/components/vehiculo/Autos"
 export default function Auto(){
     return(
         <>
-        <Autos/>
+        <div className="flex flex-wrap gap-5 p-5">
+        <VehiculoAuto/>
+        </div>
         </>
     )
 }

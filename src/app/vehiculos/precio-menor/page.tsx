@@ -1,8 +1,11 @@
+import VehiculoDeMenorAMayor from "@/components/vehiculo/VehiculoMin"
 
 export default function PrecioMenor(){
     return(
         <>
-        <h2>Del menor a mayor precio</h2>
+        <div className="flex flex-wrap gap-5 p-5">
+        <VehiculoDeMenorAMayor/>
+        </div>
         </>
     )
 }

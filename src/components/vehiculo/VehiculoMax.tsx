@@ -1,23 +1,24 @@
-import Link from "next/link";
 import { Vehicle } from "@/interfaces/Vehiculo";
-import  fetchData from "@/api/ObtenerTodos"
+import Link from "next/link"
 
-async function obtenerVehiculoCamioneta(){
-  const data = await fetchData();
-  const dataCamioneta = data.filter(auto => auto.typeVehicle === "Camioneta")
-  return dataCamioneta;
+async function fetchData(): Promise<Vehicle[]> {
+  const URL = "http://localhost:8080/vehicle/filter/max";
+  const response = await fetch(URL);
+  if (!response.ok) {
+    throw new Error(`Error fetching data: ${response.statusText}`);
+  }
+  const data: Vehicle[] = await response.json();
+  return data;
 }
 
-
-export default async function TodosLosVehiculoCamioneta() {
+export default async function VehiculoDeMenorAMayor() {
   let autos: Vehicle[] = [];
 
   try {
-    autos = await obtenerVehiculoCamioneta();
+    autos = await fetchData();
   } catch (error) {
     console.error("Error fetching data:", error);
   }
-
   return (
     <>
       {autos.map((auto) => (
@@ -40,7 +41,9 @@ export default async function TodosLosVehiculoCamioneta() {
                 {auto.price}
                 {"/dia"}
               </p>
-              <p className="font-semibold">{auto.passengerCapacity} Pasajeros</p>
+              <p className="font-semibold">
+                {auto.passengerCapacity} Pasajeros
+              </p>
             </div>
           </div>
         </div>

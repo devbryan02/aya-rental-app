@@ -1,8 +1,10 @@
+
 import { FaCarSide } from "react-icons/fa";
 import { FaShuttleVan } from "react-icons/fa";
 import { FaArrowUp } from "react-icons/fa";
 import { FaArrowDown } from "react-icons/fa";
 import Link from "next/link";
+
 import fetchData from "@/api/ObtenerTodos"
 
 async function obtenerTotalVehiculo(){
@@ -27,23 +29,24 @@ export default async function NavVehiculo() {
   const total = await obtenerTotalVehiculo();
   const totalAutos = await obtenerTotalVehiculoAuto();
   const totalCamionetas = await obtenerTotalVehiculoCamioneta();
+  
 
   return (
     <>
-      <div className="mt-5 md:mt-3 flex flex-wrap gap-5 justify-center md:justify-end items-center">
+    <div className="mt-5 md:mt-3 flex flex-wrap gap-5 justify-center md:justify-end items-center">
         <ul className="menu bg-transparent menu-vertical md:menu-horizontal">
         <li>
             <Link className="text-gray-600" href="/vehiculos/todos">
               <FaCarSide size={20} />
               Todos los vehiculos
-              <span className="badge badge-sm">+{total}</span>
+              <span className="badge badge-sm bg-gray-700">+{total}</span>
             </Link>
           </li>
           <li>
             <Link className="text-gray-600" href="/vehiculos/autos">
               <FaCarSide size={20} />
               Autos
-              <span className="badge badge-sm">+{totalAutos}</span>
+              <span className="badge badge-sm bg-gray-700">+{totalAutos}</span>
             </Link>
           </li>
           <li>
@@ -64,13 +67,6 @@ export default async function NavVehiculo() {
               <FaArrowDown size={20} />
               Precio menor
             </Link>
-          </li>
-          <li>
-            <input
-              type="text"
-              className="bg-gray-100 mx-auto md:mx-1 text-gray-700 grow input input-bordered input-sm w-full max-w-xs flex"
-              placeholder="Buscar vehiculo"
-            />
           </li>
         </ul>
       </div>

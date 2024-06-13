@@ -47,9 +47,6 @@ export default function NavBar() {
             <li>
               <Link href="/nosotros">Nosotros</Link>
             </li>
-            <li>
-              <Link href="/contacto">Contacto</Link>
-            </li>
           </ul>
         </div>
         <div className="navbar-end text-gray-600">

@@ -33,8 +33,8 @@ export default async function NavVehiculo() {
 
   return (
     <>
-    <div className="mt-5 md:mt-3 flex flex-wrap gap-5 justify-center md:justify-end items-center">
-        <ul className="menu bg-transparent menu-vertical md:menu-horizontal">
+    <div className="mt-5 md:mt-3 flex flex-wrap gap-5 justify-center md:justify-center items-center">
+        <ul className="menu bg-gray-100 rounded-box menu-vertical md:menu-horizontal ml-5">
         <li>
             <Link className="text-gray-600" href="/vehiculos/todos">
               <FaCarSide size={20} />

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import NavBar from "@/components/nav/NavBar";
 import "../styles/globals.css";
+import Footer from "@/components/inicio/Footer";
 
 import { cn } from "@/lib/utils";
 
@@ -28,6 +29,7 @@ export default function RootLayout({
       >
         <NavBar />
         {children}
+        <Footer/>
       </body>
     </html>
   );

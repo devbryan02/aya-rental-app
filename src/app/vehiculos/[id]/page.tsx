@@ -2,6 +2,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { HiArrowSmLeft } from "react-icons/hi";
+import { FaWhatsapp } from "react-icons/fa";
+import { CiBadgeDollar } from "react-icons/ci";
 
 interface VehiculoPaginaProps {
   params: {
@@ -42,10 +44,13 @@ export default async function VehiculoPagina({ params }: VehiculoPaginaProps) {
               {vehicle.vehicleStatus}
             </p>
           </div>
-          <p className="mt-3 font-semibold p-3 cursor-pointer bg-red-400 hover:bg-red-500 rounded-lg text-center text-white">
-            {vehicle.price}
+          <p className="btn w-full">
+            <CiBadgeDollar size={20} color="white"/>{vehicle.price}
             {"/dia"}
           </p>
+          <a className="btn text-white btn-success mt-2 w-full" href={`https://wa.me/+51992450988?text=Hola,%20me%20gustaría%20obtener%20más%20información%20sobre%20el%20${vehicle.brand+" "+vehicle.model}`} target="_blank">
+            <FaWhatsapp size={20}/> Seguir compra en WhatsApp
+          </a>
         </div>
         <figure className="flex flex-col gap-3 justify-end">
           <img

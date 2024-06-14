@@ -30,7 +30,7 @@ export default async function TodosLosVehiculoAutos() {
           key={auto.id}
           className="card card-compact w-96 shadow-sm hover:shadow-lg  mt-5"
         >
-          <Link href="/">
+          <Link href={`/vehiculos/${auto.id}`}>
             <figure>
               <img className="w-full rounded-box" src={auto.imageUrl} alt="Shoes" />
             </figure>

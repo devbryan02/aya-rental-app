@@ -63,8 +63,16 @@ export default function Footer() {
                 <input
                   className="input bg-gray-100 text-gray-900 rounded-lg"
                   type="email"
+                  placeholder="Ingrese su nombre"
+                  name="text"
+                  required
+                />
+                <input
+                  className="input bg-gray-100 text-gray-900 rounded-lg"
+                  type="email"
                   placeholder="Ingrese su email"
                   name="email"
+                  required
                 />
                 <input
                   className="btn bg-gray-300 border-none text-gray-600 p-3 font-semibold rounded-lg"
@@ -75,7 +83,7 @@ export default function Footer() {
             </form>
           </div>
         </div>
-        <p className="text-center">Aya Rental, Todos los derechos reservados</p>
+        <p className="text-center uppercase">Aya Rental,derechos reservados 2024</p>
       </footer>
     </>
   );

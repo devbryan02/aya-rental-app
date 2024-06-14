@@ -1,7 +1,7 @@
 export default function Banner() {
   return (
     <>
-      <div className="flex flex-col justify-center items-center w-full min-h-screen">
+      <div className="flex flex-wrap flex-col justify-center items-center w-full min-h-screen">
         <section className="flex gap-20 justify-center flex-col-reverse md:flex-row md:justify-around">
           <article className="flex flex-col gap-5 justify-center md:justify-start items-center md:items-start">
             <p className="text-2xl md:text-5xl  text-center md:text-start text-[#171717] w-full md:w-[550px]">

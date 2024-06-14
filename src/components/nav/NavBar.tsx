@@ -49,9 +49,6 @@ export default function NavBar() {
             </li>
           </ul>
         </div>
-        <div className="navbar-end text-gray-600">
-        <a className="mr-5 btn btn-ghost" href="/login">Login</a>
-        </div>
       </div>
     </>
   );

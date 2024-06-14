@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { loginUser } from "@/api/LoginPage";
 import { useRouter } from "next/navigation";
+import NavBar from "@/components/nav/NavBar";
+import Footer from "@/components/inicio/Footer";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -38,6 +40,7 @@ export default function LoginPage() {
 
   return (
     <>
+    <NavBar/>
       <div className="flex flex-col-reverse h-[80vh] gap-3 md:flex-row justify-center items-center p-2">
         <figure>
           <img
@@ -83,6 +86,7 @@ export default function LoginPage() {
           </form>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

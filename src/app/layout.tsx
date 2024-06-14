@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import NavBar from "@/components/nav/NavBar";
@@ -27,9 +28,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <NavBar />
         {children}
-        <Footer/>
       </body>
     </html>
   );

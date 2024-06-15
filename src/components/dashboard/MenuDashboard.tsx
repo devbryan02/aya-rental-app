@@ -6,6 +6,7 @@ import { SiVbulletin } from "react-icons/si";
 import { TbLogout2 } from "react-icons/tb";
 import Modal from "@/components/dashboard/Modal"
 import {useRouter} from "next/navigation"
+import { MdDashboard } from "react-icons/md";
 
 export default function MenuDashboard() {
   const router = useRouter();
@@ -26,7 +27,15 @@ export default function MenuDashboard() {
 
   return (
     <>
-      <div className="bg-gray-100 w-full flex p-5 gap-5 justify-center items-center ">
+      <div className="bg-gray-100 w-full flex p-3 gap-5 justify-around items-center ">
+        <ul className='menu bg-gray-100 menu-horizontal'>
+          <li>
+          <Link href="/dashboard" className='font-bold uppercase text-gray-600'>
+          <MdDashboard size={20}/>
+          aya rental
+          </Link>
+          </li>
+        </ul>
         <ul className="menu bg-gray-100 menu-horizontal">
           <li>
             <Link className="text-gray-600" href="/dashboard/vehiculos">

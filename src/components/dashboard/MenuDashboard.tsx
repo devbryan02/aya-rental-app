@@ -17,7 +17,7 @@ export default function MenuDashboard() {
   };
 
   const handleConfirmLogout = () => {
-    router.push("/")
+    router.push("/login")
     setShowConfirmationModal(false);
   };
 
@@ -30,7 +30,7 @@ export default function MenuDashboard() {
       <div className="bg-gray-100 w-full flex p-3 gap-5 justify-around items-center ">
         <ul className='menu bg-gray-100 menu-horizontal'>
           <li>
-          <Link href="/dashboard" className='font-bold uppercase text-gray-600'>
+          <Link href="/dashboard/vehiculos" className='font-bold uppercase text-gray-600'>
           <MdDashboard size={20}/>
           aya rental
           </Link>

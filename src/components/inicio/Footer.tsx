@@ -1,6 +1,7 @@
 import { FaWhatsapp } from "react-icons/fa";
 import { FaFacebookSquare } from "react-icons/fa";
 import { MdMarkEmailRead } from "react-icons/md";
+import Link from "next/link"
 
 export default function Footer() {
   return (
@@ -54,7 +55,7 @@ export default function Footer() {
             >
               Politicas y condiciones
             </a>
-            <a href="/login">Intranet</a>
+            <Link href="/login">Dasboard</Link>
           </div>
           <div>
             <form action="">

@@ -1,8 +1,12 @@
 import MenuDashboard from "@/components/dashboard/MenuDashboard";
+import { Metadata } from "next";
 
-function LayoutDashBoard({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export const metadata : Metadata = {
+  title: "Dashboard admin",
+  description: "XDXDXDXDX"
+}
+
+function LayoutDashBoard({children,}: Readonly<{ children: React.ReactNode }>) {
   return (
     <>
       <MenuDashboard />

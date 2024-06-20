@@ -1,4 +1,5 @@
-import VehiculoAuto from "@/components/vehiculo/Autos"
+import VehiculoAuto from "@/components/vehiculo/Autos";
+
 export default function Auto(){
     return(
         <>

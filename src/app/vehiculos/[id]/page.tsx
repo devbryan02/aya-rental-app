@@ -1,4 +1,3 @@
-"use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { HiArrowSmLeft } from "react-icons/hi";
@@ -21,11 +20,7 @@ export default async function VehiculoPagina({ params }: VehiculoPaginaProps) {
   const vehicle = await getVehicleById(params.id);
   return (
     <>
-      <motion.div
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.5 }}
-        transition={{ duration: 0.3 }}
+      <div
         key={vehicle.id}
         className="flex flex-wrap gap-5 justify-center items-center h-[80vh]"
       >
@@ -66,7 +61,7 @@ export default async function VehiculoPagina({ params }: VehiculoPaginaProps) {
             </p>
           </div>
         </figure>
-      </motion.div>
+      </div>
     </>
   );
 }

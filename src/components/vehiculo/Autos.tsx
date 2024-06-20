@@ -1,32 +1,30 @@
+"use client";
 import Link from "next/link";
 import { Vehicle } from "@/interfaces/Vehiculo";
-import fetchData from "@/api/ObtenerTodos";
+import { motion } from "framer-motion";
 
-async function obtenerVehiculoAuto() {
-  const data = await fetchData();
-  const dataAuto = data.filter((auto) => auto.typeVehicle === "Auto");
-  return dataAuto;
+interface AutosListProps {
+  autos: Vehicle[];
 }
 
-export default async function TodosLosVehiculoAutos() {
-  let autos: Vehicle[] = [];
-
-  try {
-    autos = await obtenerVehiculoAuto();
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  }
-
+export default function TodosLosVehiculoAutos({ autos }: AutosListProps) {
   return (
     <>
       {autos.map((auto) => (
-        <div
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
           key={auto.id}
           className="card card-compact w-96 shadow-sm hover:shadow-lg  mt-5"
         >
           <Link href={`/vehiculos/${auto.id}`}>
             <figure>
-              <img className="w-full rounded-box" src={auto.imageUrl} alt="Shoes" />
+              <img
+                className="w-full rounded-box"
+                src={auto.imageUrl}
+                alt="Shoes"
+              />
             </figure>
           </Link>
           <div className="flex gap-1 justify-center items-center p-2 mt-2">
@@ -39,11 +37,12 @@ export default async function TodosLosVehiculoAutos() {
                 {"/dia"}
               </p>
               <p className="badge text-white badge-info">
-                {auto.passengerCapacity} <span className="text-sm">{"-"} Pasajeros</span>
+                {auto.passengerCapacity}{" "}
+                <span className="text-sm">{"-"} Pasajeros</span>
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       ))}
     </>
   );

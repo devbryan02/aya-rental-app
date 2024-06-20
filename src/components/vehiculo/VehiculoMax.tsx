@@ -1,3 +1,4 @@
+"use client";
 import { Vehicle } from "@/interfaces/Vehiculo";
 import Link from "next/link";
 

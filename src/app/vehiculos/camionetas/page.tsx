@@ -1,6 +1,4 @@
 import Camionetas from "@/components/vehiculo/Camionetas";
-import { motion } from "framer-motion";
-
 export default function Camioneta() {
   return (
     <>

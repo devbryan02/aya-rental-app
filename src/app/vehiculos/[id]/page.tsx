@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { HiArrowSmLeft } from "react-icons/hi";
 import { FaWhatsapp } from "react-icons/fa";

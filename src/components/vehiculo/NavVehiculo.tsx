@@ -5,7 +5,7 @@ import { FaArrowUp } from "react-icons/fa";
 import { FaArrowDown } from "react-icons/fa";
 import Link from "next/link";
 
-import fetchData from "@/api/ObtenerTodos"
+import {fetchData} from "@/api/ObtenerTodos"
 
 async function obtenerTotalVehiculo(){
   const autos = await fetchData();

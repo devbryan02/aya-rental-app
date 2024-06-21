@@ -1,10 +1,13 @@
 import { IoAddCircleOutline } from "react-icons/io5";
 import { FaRegEdit } from "react-icons/fa";
-import fetchData from "@/api/ObtenerTodos";
 import Link from "next/link";
+import {Vehicle} from "@/interfaces/Vehiculo";
 
-export default async function VehiculosDashboard() {
-  const autos = await fetchData();
+interface AutosListProps {
+  autos: Vehicle[];
+}
+
+export default  function VehiculosDashboard({autos}: AutosListProps) {
 
   return (
     <>

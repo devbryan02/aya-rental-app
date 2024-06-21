@@ -17,7 +17,8 @@ export default function MenuDashboard() {
   };
 
   const handleConfirmLogout = () => {
-    router.push("/login")
+    router.push("/login")  
+    localStorage.removeItem("token")
     setShowConfirmationModal(false);
   };
 

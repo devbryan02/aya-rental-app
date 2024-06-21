@@ -28,58 +28,56 @@ const LoginForm = () => {
       );
       console.log(response);
       if (response.data.status === true) {
+        localStorage.removeItem("token");
+        localStorage.setItem("token", response.data.jwt);
         router.push("/dashboard/vehiculos");
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Bienvenido "+credentials.username,
-          showConfirmButton: false,
-          timer: 1500
-        });
-      }  else {
-        router.push("/login")
+      } else {
+        router.push("/login");
       }
     } catch (error) {
       Swal.fire({
-        title:"Error de inicio",
+        title: "Error de inicio",
         icon: "error",
-        text:"Datos invalidos",
+        text: "Datos invalidos",
         showConfirmButton: true,
-      })
+      });
       console.log("Error en el inicio");
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        <input
-          className="input bg-slate-100"
-          type="text"
-          name="username"
-          value={credentials.username}
-          onChange={handleChange}
-          placeholder="Username"
-          required
-        />
-      </label>
-      <label>
-        <input
-          className="input bg-slate-100"
-          type="password"
-          name="password"
-          value={credentials.password}
-          onChange={handleChange}
-          placeholder="Password"
-          required
-        />
-      </label>
-      <button
-        className="px-4 py-3 bg-blue-300 shadow-xl text-white font-bold rounded-lg hover:bg-blue-400"
-        type="submit"
-      >
-        Iniciar
-      </button>
+      <div className="flex flex-col gap-5">
+        <h3 className="text-center font-bold text-3xl">Iniciar sesión</h3>
+        <label>
+          <input
+            className="input bg-slate-100"
+            type="text"
+            name="username"
+            value={credentials.username}
+            onChange={handleChange}
+            placeholder="Username"
+            required
+          />
+        </label>
+        <label>
+          <input
+            className="input bg-slate-100"
+            type="password"
+            name="password"
+            value={credentials.password}
+            onChange={handleChange}
+            placeholder="Password"
+            required
+          />
+        </label>
+        <button
+          className="px-4 py-3 bg-blue-300 shadow-xl text-white font-bold rounded-lg hover:bg-blue-400"
+          type="submit"
+        >
+          Iniciar
+        </button>
+      </div>
     </form>
   );
 };

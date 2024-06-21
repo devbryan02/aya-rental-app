@@ -1,29 +1,23 @@
-import { createContext } from "react";
+"use client";
 import Link from "next/link";
 import { Vehicle } from "@/interfaces/Vehiculo";
-import fetchData from "@/api/ObtenerTodos";
+import {motion} from "framer-motion"
 
 
-async function obtenerVehiculoCamioneta() {
-  const data = await fetchData();
-  const dataCamioneta = data.filter((auto) => auto.typeVehicle === "Camioneta");
-  return dataCamioneta;
+interface AutoProps{
+  autos: Vehicle[]
 }
 
-export default async function TodosLosVehiculoCamioneta() {
-  let autos: Vehicle[] = [];
-
-  try {
-    autos = await obtenerVehiculoCamioneta();
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  }
+export default function TodosLosVehiculoCamioneta({autos}: AutoProps) {
 
   return (
     <>
       {autos.map((auto) => (
-        <div
+        <motion.div
         key={auto.id}
+        initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
         className="card card-compact w-96 shadow-sm hover:shadow-lg  mt-5  "
       >
         <Link href={`/vehiculos/${auto.id}`}>
@@ -45,7 +39,7 @@ export default async function TodosLosVehiculoCamioneta() {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
       ))}
     </>
   );

@@ -40,4 +40,29 @@ export async function obtenerVehicluloMin(): Promise<Vehicle[]> {
   return data;
 }
 
-export default { obtenerVehiculoMax, fetchData, obtenerVehicluloMin};
+// vehiculos autos
+export async function obtenerVehiculoAuto() {
+  const data = await fetchData();
+  const dataAuto = data.filter((auto) => auto.typeVehicle === "Auto");
+  return dataAuto;
+}
+
+// vehiculo por ID
+export async function getVehicleById(id: string) {
+  try {
+    const res = await fetch(`http://localhost:8080/vehicle/${id}`);
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching vehicle data:", error);
+    throw error;
+  }
+}
+
+export default {
+  obtenerVehiculoMax,
+  fetchData,
+  obtenerVehicluloMin,
+  obtenerVehiculoAuto,
+  getVehicleById
+};

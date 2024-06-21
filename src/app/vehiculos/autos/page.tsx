@@ -1,5 +1,5 @@
 import VehiculoAuto from "@/components/vehiculo/Autos";
-import obtenerVehiculoAuto from "@/api/ObtenerVehiculoAuto";
+import {obtenerVehiculoAuto} from "@/services/vehiculo";
 
 export default async function Auto() {
   const autos = await obtenerVehiculoAuto();

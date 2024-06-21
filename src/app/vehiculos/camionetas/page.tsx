@@ -1,5 +1,5 @@
 import Camionetas from "@/components/vehiculo/Camionetas";
-import { obtenerVehiculoCamioneta } from "@/api/ObtenerTodos";
+import {obtenerVehiculoCamioneta} from "@/services/vehiculo";
 import { Vehicle } from "@/interfaces/Vehiculo";
 
 export default async function Camioneta() {

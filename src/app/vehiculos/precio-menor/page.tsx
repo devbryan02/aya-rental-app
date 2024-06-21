@@ -1,6 +1,6 @@
 
 import VehiculoDeMenorAMayor from "@/components/vehiculo/VehiculoMin"
-import {obtenerVehicluloMin} from "@/api/ObtenerTodos"
+import {obtenerVehicluloMin} from "@/services/vehiculo"
 import { Vehicle } from "@/interfaces/Vehiculo"
 
 export default async function PrecioMenor(){

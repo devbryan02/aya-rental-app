@@ -1,5 +1,5 @@
 import TodosLosAutos from "@/components/vehiculo/Todos"
-import {fetchData} from "@/api/ObtenerTodos"
+import {fetchData} from "@/services/vehiculo"
 import { Vehicle } from "@/interfaces/Vehiculo"
 
 export default async function TodosLosVehiculos(){

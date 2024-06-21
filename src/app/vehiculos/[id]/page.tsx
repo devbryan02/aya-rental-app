@@ -2,17 +2,12 @@ import Link from "next/link";
 import { HiArrowSmLeft } from "react-icons/hi";
 import { FaWhatsapp } from "react-icons/fa";
 import { CiBadgeDollar } from "react-icons/ci";
+import {getVehicleById} from "@/services/vehiculo"
 
 interface VehiculoPaginaProps {
   params: {
     id: string;
   };
-}
-
-async function getVehicleById(id: string) {
-  const rest = await fetch(`http://localhost:8080/vehicle/${id}`);
-  const data = rest.json();
-  return data;
 }
 
 export default async function VehiculoPagina({ params }: VehiculoPaginaProps) {

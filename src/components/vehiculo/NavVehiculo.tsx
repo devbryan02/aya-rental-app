@@ -5,7 +5,8 @@ import { FaArrowUp } from "react-icons/fa";
 import { FaArrowDown } from "react-icons/fa";
 import Link from "next/link";
 
-import {fetchData} from "@/api/ObtenerTodos"
+import {fetchData} from "@/services/vehiculo"
+import { Vehicle } from "@/interfaces/Vehiculo";
 
 async function obtenerTotalVehiculo(){
   const autos = await fetchData();
@@ -13,7 +14,7 @@ async function obtenerTotalVehiculo(){
 }
 
 async function obtenerTotalVehiculoAuto(){
-  const autos = await fetchData();
+  const autos : Vehicle[] = await fetchData();
   const VehiculosAutos = autos.filter(auto => auto.typeVehicle === "Auto")
   return VehiculosAutos.length;
 }

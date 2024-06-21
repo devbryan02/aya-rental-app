@@ -1,5 +1,5 @@
 import VehiculoPrecioMayor from "@/components/vehiculo/VehiculoMax"
-import {obtenerVehiculoMax} from "@/api/ObtenerTodos"
+import {obtenerVehiculoMax} from "@/services/vehiculo"
 
 export default async  function PrecioMayor(){
 

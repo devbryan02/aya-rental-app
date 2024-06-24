@@ -7,6 +7,7 @@ import { TbLogout2 } from "react-icons/tb";
 import Modal from "@/components/dashboard/Modal"
 import {useRouter} from "next/navigation"
 import { MdDashboard } from "react-icons/md";
+import { MdLocalOffer } from "react-icons/md";
 
 export default function MenuDashboard() {
   const router = useRouter();
@@ -28,8 +29,8 @@ export default function MenuDashboard() {
 
   return (
     <>
-      <div className="bg-gray-100 w-full flex p-3 gap-5 justify-around items-center ">
-        <ul className='menu bg-gray-100 menu-horizontal'>
+      <div className="bg-transparent w-full flex p-3 gap-5 justify-around items-center ">
+        <ul className='menu bg-gray-100 menu-horizontal rounded-box shadow-lg'>
           <li>
           <Link href="/dashboard/vehiculos" className='font-bold uppercase text-gray-600'>
           <MdDashboard size={20}/>
@@ -37,7 +38,7 @@ export default function MenuDashboard() {
           </Link>
           </li>
         </ul>
-        <ul className="menu bg-gray-100 menu-horizontal">
+        <ul className="menu bg-gray-100 menu-horizontal rounded-box shadow-lg">
           <li>
             <Link className="text-gray-600" href="/dashboard/vehiculos">
               <FaCar size={20} />
@@ -45,9 +46,15 @@ export default function MenuDashboard() {
             </Link>
           </li>
           <li>
-            <Link className="text-gray-600" href="">
+            <Link className="text-gray-600" href="/dashboard/boletin">
               <SiVbulletin size={15} />
               Boletin
+            </Link>
+          </li>
+          <li>
+            <Link className="text-gray-600" href="/dashboard/ventas">
+              <MdLocalOffer size={15} />
+              ventas
             </Link>
           </li>
           <li>

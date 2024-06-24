@@ -1,10 +1,11 @@
 import Link  from "next/link";
 import { FaCar } from "react-icons/fa";
+import { IoIosLogIn } from "react-icons/io";
 
 export default function NavBar() {
   return (
     <>
-      <div className="navbar bg-gray-100">
+      <div className="navbar bg-transparent py-5">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -46,6 +47,14 @@ export default function NavBar() {
             </li>
             <li>
               <Link href="/nosotros">Nosotros</Link>
+            </li>
+          </ul>
+        </div>
+        <div className="navbar-end hidden text-gray-700  lg:flex">
+          <ul className="menu menu-horizontal px-1">
+            <li className="flex flex-row items-center">
+              <Link href="/login"> <IoIosLogIn color="black" size={20}/> Iniciar
+              </Link> 
             </li>
           </ul>
         </div>

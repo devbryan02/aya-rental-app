@@ -1,14 +1,16 @@
+"use client";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { FaRegEdit } from "react-icons/fa";
 import Link from "next/link";
-import {Vehicle} from "@/interfaces/Vehiculo";
+import { Vehicle } from "@/interfaces/Vehiculo";
+import ButtonDelete from "../vehiculo/ButtonDelete";
+import { PiCurrencyDollarSimpleFill } from "react-icons/pi";
 
 interface AutosListProps {
   autos: Vehicle[];
 }
 
-export default  function VehiculosDashboard({autos}: AutosListProps) {
-
+export default function VehiculosDashboard({ autos }: AutosListProps) {
   return (
     <>
       <div className="flex gap-3 flex-col mt-3 mx-auto w-[70%] pb-10">
@@ -28,7 +30,7 @@ export default  function VehiculosDashboard({autos}: AutosListProps) {
           </Link>
         </div>
         <div className="overflow-x-auto h-[370px] overflow-y-auto text-gray-700">
-          <table className="table">
+          <table className="table border-collapse table-auto">
             {/* head */}
             <thead className="text-gray-700 ">
               <tr>
@@ -43,21 +45,26 @@ export default  function VehiculosDashboard({autos}: AutosListProps) {
             <tbody className="hover">
               {autos.map((auto) => (
                 <tr key={auto.id}>
-                  <th>{auto.brand}</th>
-                  <td>{auto.model}</td>
-                  <td>
+                  <td className="border-t border-gray-300">{auto.brand}</td>
+                  <td className="border-t border-gray-300">{auto.model}</td>
+                  <td className="border-t border-gray-300">
                     <img src={auto.imageUrl} alt={auto.model} width={50} />
                   </td>
-                  <td>{auto.price}/dia</td>
-                  <td>{auto.plate}</td>
-                  <td>
+                  <td className="border-t border-gray-300">
+                    <p className="badge badge-error  text-white">
+                      <PiCurrencyDollarSimpleFill />
+                      {auto.price}/dia
+                    </p>
+                  </td>
+                  <td className="border-t border-gray-300">{auto.plate}</td>
+                  <td className="border-t border-gray-300">
                     <Link
-                      className="btn btn-sm btn-success text-white"
+                      className="btn btn-sm btn-success text-white text-sm"
                       href={`/dashboard/vehiculos/editar/${auto.id}`}
                     >
                       <FaRegEdit size={15} />
-                      Editar
                     </Link>
+                    <ButtonDelete idVehicle={auto.id} />
                   </td>
                 </tr>
               ))}

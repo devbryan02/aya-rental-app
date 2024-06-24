@@ -128,7 +128,7 @@ function NuevoVehicleForm() {
           {
             headers: {
               "Content-Type": "multipart/form-data",
-              Authorization: `Bearer ${token}`,
+              "Authorization": `Bearer ${token}`,
             },
           }
         );
@@ -144,12 +144,18 @@ function NuevoVehicleForm() {
           {
             headers: {
               "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
+              "Authorization": `Bearer ${token}`,
             },
           }
         );
         console.log(response.data);
-        Swal.fire("Éxito", "Vehículo actualizado correctamente", "success");
+        Swal.fire({
+          position: "top-right",
+          icon: "success",
+          title: "Gracias por enviar sus datos",
+          showConfirmButton: false,
+          timer: 1500
+        });
         router.push("/dashboard/vehiculos")
         router.refresh();
       }

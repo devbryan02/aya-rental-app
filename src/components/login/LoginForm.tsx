@@ -48,7 +48,7 @@ const LoginForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="flex flex-col gap-5">
-        <h3 className="text-center font-bold text-3xl">Iniciar sesión</h3>
+        <h3 className="text-center font-bold text-3xl text-gray-600 uppercase drop-shadow-lg">Iniciar sesión</h3>
         <label>
           <input
             className="input bg-slate-100"

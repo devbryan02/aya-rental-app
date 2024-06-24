@@ -1,6 +1,7 @@
 import TodosLosAutos from "@/components/vehiculo/Todos"
 import {fetchData} from "@/services/vehiculo"
 import { Vehicle } from "@/interfaces/Vehiculo"
+import { useRouter } from "next/router";
 
 export default async function TodosLosVehiculos(){
 

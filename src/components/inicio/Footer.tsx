@@ -1,9 +1,53 @@
+
+"use client";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaFacebookSquare } from "react-icons/fa";
 import { MdMarkEmailRead } from "react-icons/md";
 import Link from "next/link"
+import React, { useState } from "react";
+import { Boletin } from "@/interfaces/Boletin";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 export default function Footer() {
+
+  const [boletin, setBoletin] = useState<Boletin>({
+    id:"",
+    name:"",
+    email:""
+  })
+
+  const handleChange = (e :React.ChangeEvent<HTMLInputElement>) => {
+    setBoletin({
+      ...boletin,
+      [e.target.name] : e.target.value
+    })
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) =>{
+    e.preventDefault();
+    try{
+      const URL = "http://localhost:8080/boletin/create"
+      const response = await axios.post(URL, boletin)
+      if(response.status){
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Gracias por enviar sus datos",
+          showConfirmButton: false,
+          timer: 1500
+        });
+        setBoletin({
+          id:"",
+          name:"",
+          email:""
+        })
+      }
+    }catch(error){
+      console.log(error)
+    }
+  }
+
   return (
     <>
       <footer className="flex flex-col gap-5 p-10 bg-gray-100 text-gray-700">
@@ -55,22 +99,25 @@ export default function Footer() {
             >
               Politicas y condiciones
             </a>
-            <Link href="/login">Dasboard</Link>
           </div>
           <div>
-            <form action="">
+            <form onSubmit={handleSubmit}>
               <div className="flex flex-col gap-3 ">
                 <p className="font-semibold">Boletin informativo</p>
                 <input
                   className="input bg-gray-100 text-gray-900 rounded-lg"
-                  type="email"
+                  type="text"
                   placeholder="Ingrese su nombre"
-                  name="text"
+                  name="name"
+                  value={boletin.name}
+                  onChange={handleChange}
                   required
                 />
                 <input
                   className="input bg-gray-100 text-gray-900 rounded-lg"
                   type="email"
+                  value={boletin.email}
+                  onChange={handleChange}
                   placeholder="Ingrese su email"
                   name="email"
                   required

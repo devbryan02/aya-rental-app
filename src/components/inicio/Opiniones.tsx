@@ -1,10 +1,10 @@
 export default function Opiniones() {
   return (
     <>
-      <h3 className="text-3xl font-semibold text-center text-gray-700 uppercase mt-10 md:mt-20">
+      <h3 className="text-3xl  font-semibold text-center text-gray-700 uppercase mt-10 md:mt-20">
         Lo que opinan nuestro cliente
       </h3>
-      <div className="flex flex-wrap gap-10 justify-center mt-10 mb-10">
+      <div className="flex  flex-wrap gap-10 justify-center mt-10 mb-10">
         <article className="flex flex-col p-5 bg-gray-50 gap-1 shadow-lg rounded-lg w-[250px] h-auto">
           <div className="flex items-center">
             <figure>

@@ -15,7 +15,7 @@ export default function ButtonDelete({ idVehicle }: ButtonDeleteProps) {
   return (
     <>
       <button
-        className="btn btn-error btn-sm mx-3 text-white"
+        className="btn btn-error shadow-lg btn-sm mx-3 text-white"
         onClick={async () => {
           Swal.fire({
             title: "¿Estas segura de eliminar este vehiculo?",

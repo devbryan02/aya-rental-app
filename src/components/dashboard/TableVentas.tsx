@@ -132,11 +132,11 @@ function Tableventas() {
     <>
       <div className="flex gap-3 flex-col mt-3 mx-auto w-[70%] pb-10 ">
         <div>
-          <h2 className="text-3xl text-gray-600 font-semibold uppercase">
-            Generar <span className="text-indigo-400">ventas</span>
+          <h2 className="text-3xl drop-shadow-lg text-gray-600 font-semibold uppercase">
+            Generar <span className="text-warning">ventas</span>
           </h2>
           <AlertDialog>
-            <AlertDialogTrigger className="btn btn-error text-white mt-3">
+            <AlertDialogTrigger className="btn btn-warning shadow-lg text-white mt-3">
               <IoIosAddCircleOutline size={20} />
               Nueva venta
             </AlertDialogTrigger>
@@ -213,7 +213,7 @@ function Tableventas() {
                   </td>
                   <td className="border-t border-gray-300">
                     <button
-                      className="btn btn-sm btn-warning text-white"
+                      className="btn btn-sm btn-warning text-white shadow-lg"
                       onClick={() => {
                         console.log(booking.id)
                       }}

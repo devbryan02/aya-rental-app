@@ -69,7 +69,7 @@ const ListBoletin: React.FC = () => {
 
   return (
     <div className="flex gap-3 flex-col mt-3 mx-auto w-[70%] pb-10">
-      <h2 className="text-3xl font-semibold text-gray-600 uppercase mb-5">
+      <h2 className="text-3xl drop-shadow-lg font-semibold text-gray-600 uppercase mb-5">
         Boletin de <span className="text-green-500">usuarios</span>{" "}
       </h2>
       <div className="overflow-x-auto overflow-y-auto h-[370px]">
@@ -92,13 +92,13 @@ const ListBoletin: React.FC = () => {
                 </td>
                 <td className="border-t border-gray-300">{b.name}</td>
                 <td className="border-t border-gray-300">
-                  <p className="p-1 bg-red-400 flex gap-1 items-center badge badge-lg text-white badge-error">
+                  <p className="p-1 bg-red-400 flex gap-1 shadow-lg items-center badge badge-lg text-white badge-error">
                     <MdOutlineMarkEmailRead /> {b.email}
                   </p>
                 </td>
                 <td className="border-t border-gray-300">
                   <a
-                    className="btn btn-sm btn-success text-white"
+                    className="btn btn-sm btn-success shadow-lg text-white"
                     href={`mailto:${b.email}?subject=${encodeURIComponent(
                       mensaje
                     )}`}

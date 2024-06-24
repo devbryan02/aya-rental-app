@@ -19,34 +19,77 @@ import { Booking } from "@/interfaces/Booking";
 import axios from "axios";
 import { SingleValue } from "react-select";
 import Swal from "sweetalert2";
+import { useEffect } from "react";
+import { Bookings } from "@/interfaces/Bookings";
 
 interface OptionType {
   value: string;
   label: string;
 }
 
+const API_URL = "http://localhost:8080/booking/list";
+
 function Tableventas() {
-  
   const [booking, setBooking] = useState<Booking>({
     id: "",
     startDate: "",
     endDate: "",
     purpose: "",
   });
+
+  const [bookings, setBookings] = useState<Bookings[]>([]);
+  
   const [selectedVehicle, setSelectedVehicle] =
     useState<SingleValue<OptionType>>(null);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.name + e.target.value);
     setBooking({
       ...booking,
       [e.target.name]: e.target.value,
     });
   };
 
+  // estdos par refrescar los cambios
+  const [refreshData, setRefreshData] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // peticion hacia el servidor
+  useEffect(() => {
+    const fecthBookings = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        console.log("Toquen no encontrado");
+      }
+      try {
+        const response = await axios.get(API_URL, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setBookings(response.data);
+      } catch (error) {
+        console.log("Error en solicitar las reservas");
+      }finally{
+        setIsLoading(false)
+      }
+    };
+    fecthBookings();
+  }, [refreshData]);
+
+  if (isLoading) {
+    return (
+      <>
+      <div className="flex justify-center h-[80vh]">
+      <span className="loading loading-spinner loading-lg"></span>
+      </div>
+      </>
+    );
+  }
+
+
+  // envio de datos hacia el servidor
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      
       if (!selectedVehicle) {
         Swal.fire("Por favor seleccione un vehiculo");
         return;
@@ -65,14 +108,15 @@ function Tableventas() {
           },
         }
       );
-      if(response.status){
+      if (response.status) {
         Swal.fire({
           position: "top-end",
           icon: "success",
           title: "Venta registrado correctamente",
           showConfirmButton: false,
-          timer: 1500
+          timer: 1500,
         });
+        setRefreshData((prev) => !prev);
       }
       console.log("Booking created successfully:", response.data);
     } catch (error) {
@@ -81,7 +125,6 @@ function Tableventas() {
         title: "Oops...",
         text: "Ocurrió un error!",
       });
-      console.error("Error creating booking:", error);
     }
   };
 
@@ -156,17 +199,30 @@ function Tableventas() {
               </tr>
             </thead>
             <tbody>
-              <tr className="text-gray-600">
-                <td className="border-t border-gray-300">2ASG-ASGG-1123235</td>
-                <td className="border-t border-gray-300">12/12/2024</td>
-                <td className="border-t border-gray-300">12/12/2024</td>
-                <td className="border-t border-gray-300">200/dia</td>
-                <td className="border-t border-gray-300">
-                  <a className="btn btn-sm btn-warning text-white" href="#">
-                    <FaPrint /> Imprimir
-                  </a>
-                </td>
-              </tr>
+              {bookings.map((booking) => (
+                <tr className="text-gray-600" key={booking.id}>
+                  <td className="border-t border-gray-300">{booking.id}</td>
+                  <td className="border-t border-gray-300">
+                    {booking.startDate}
+                  </td>
+                  <td className="border-t border-gray-300">
+                    {booking.endDate}
+                  </td>
+                  <td className="border-t border-gray-300">
+                    {booking.totalPrice}
+                  </td>
+                  <td className="border-t border-gray-300">
+                    <button
+                      className="btn btn-sm btn-warning text-white"
+                      onClick={() => {
+                        console.log(booking.id)
+                      }}
+                    >
+                      <FaPrint /> Imprimir
+                    </button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

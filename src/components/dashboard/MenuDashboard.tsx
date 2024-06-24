@@ -54,7 +54,7 @@ export default function MenuDashboard() {
           <li>
             <Link className="text-gray-600" href="/dashboard/ventas">
               <MdLocalOffer size={15} />
-              ventas
+              Ventas
             </Link>
           </li>
           <li>

@@ -1,7 +1,7 @@
 "use client";
 import { Vehicle } from "@/interfaces/Vehiculo";
 import Link from "next/link";
-import {motion} from "framer-motion"
+import { motion } from "framer-motion";
 
 interface AutosListProps {
   autos: Vehicle[];

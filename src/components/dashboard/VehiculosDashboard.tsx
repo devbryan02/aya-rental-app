@@ -2,15 +2,30 @@
 import { IoAddCircleOutline } from "react-icons/io5";
 import { FaRegEdit } from "react-icons/fa";
 import Link from "next/link";
-import { Vehicle } from "@/interfaces/Vehiculo";
 import ButtonDelete from "../vehiculo/ButtonDelete";
 import { PiCurrencyDollarSimpleFill } from "react-icons/pi";
+import { useState, useEffect } from "react";
+import { fetchData } from "@/services/vehiculo";
+import { Vehicle } from "@/interfaces/Vehiculo";
 
-interface AutosListProps {
-  autos: Vehicle[];
-}
+export default function VehiculosDashboard() {
+  const [autos, setAutos] = useState<Vehicle[]>([]);
+  const [refreshData, setRefreshData] = useState(false);
 
-export default function VehiculosDashboard({ autos }: AutosListProps) {
+  useEffect(() => {
+    const fetchDataAsync = async () => {
+      try {
+        const data = await fetchData();
+        setAutos(data);
+        setRefreshData(true);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchDataAsync();
+  }, [refreshData]); // Añadir refreshData como dependencia
+
   return (
     <>
       <div className="flex gap-3 flex-col mt-3 mx-auto w-[70%] pb-10">

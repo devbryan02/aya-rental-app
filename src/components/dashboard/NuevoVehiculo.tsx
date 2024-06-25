@@ -152,7 +152,7 @@ function NuevoVehicleForm() {
         Swal.fire({
           position: "top-right",
           icon: "success",
-          title: "Gracias por enviar sus datos",
+          title: "Vehiculo actualizado correctamente",
           showConfirmButton: false,
           timer: 1500
         });

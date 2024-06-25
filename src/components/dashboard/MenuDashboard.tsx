@@ -52,9 +52,9 @@ export default function MenuDashboard() {
             </Link>
           </li>
           <li>
-            <Link className="text-gray-600" href="/dashboard/ventas">
+            <Link className="text-gray-600" href="/dashboard/reservas">
               <MdLocalOffer size={15} />
-              Ventas
+              Reservas
             </Link>
           </li>
           <li>

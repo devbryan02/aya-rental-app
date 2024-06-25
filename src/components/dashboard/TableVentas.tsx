@@ -1,5 +1,4 @@
 "use client";
-import { FaPrint } from "react-icons/fa";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -21,6 +20,7 @@ import { SingleValue } from "react-select";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
 import { Bookings } from "@/interfaces/Bookings";
+import ButtonPrint from "./ButtonPrint";
 
 interface OptionType {
   value: string;
@@ -112,7 +112,7 @@ function Tableventas() {
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: "Venta registrado correctamente",
+          title: "Reserva registrado correctamente",
           showConfirmButton: false,
           timer: 1500,
         });
@@ -133,17 +133,17 @@ function Tableventas() {
       <div className="flex gap-3 flex-col mt-3 mx-auto w-[70%] pb-10 ">
         <div>
           <h2 className="text-3xl drop-shadow-lg text-gray-600 font-semibold uppercase">
-            Generar <span className="text-warning">ventas</span>
+            Generar <span className="text-warning">Reservas</span>
           </h2>
           <AlertDialog>
             <AlertDialogTrigger className="btn btn-warning shadow-lg text-white mt-3">
               <IoIosAddCircleOutline size={20} />
-              Nueva venta
+              Nueva reserva
             </AlertDialogTrigger>
             <AlertDialogContent>
               <AlertDialogHeader>
                 <AlertDialogTitle className="text-gray-600 uppercase">
-                  Registrar nueva venta
+                  Registrar nueva reserva
                 </AlertDialogTitle>
                 <AlertDialogDescription>
                   <form onSubmit={handleSubmit}>
@@ -191,17 +191,17 @@ function Tableventas() {
           <table className="table border-collapse table-auto">
             <thead>
               <tr className="text-gray-700">
-                <th>Codigo</th>
+                <th>Vehiculo</th>
                 <th>Fecha inicio</th>
                 <th>fecha fin</th>
-                <th>Precio</th>
+                <th>Precio/dia</th>
                 <th>Accion</th>
               </tr>
             </thead>
             <tbody>
               {bookings.map((booking) => (
                 <tr className="text-gray-600" key={booking.id}>
-                  <td className="border-t border-gray-300">{booking.id}</td>
+                  <td className="border-t border-gray-300">{booking.vehicleModel+" "+booking.vehicleBrand}</td>
                   <td className="border-t border-gray-300">
                     {booking.startDate}
                   </td>
@@ -209,21 +209,14 @@ function Tableventas() {
                     {booking.endDate}
                   </td>
                   <td className="border-t border-gray-300">
-                    {booking.totalPrice}
+                    S/ {booking.totalPrice}
                   </td>
                   <td className="border-t border-gray-300">
-                    <button
-                      className="btn btn-sm btn-warning text-white shadow-lg"
-                      onClick={() => {
-                        console.log(booking.id)
-                      }}
-                    >
-                      <FaPrint /> Imprimir
-                    </button>
+                    <ButtonPrint idBooking={booking.id}/>
                   </td>
                 </tr>
               ))}
-            </tbody>
+            </tbody>  
           </table>
         </div>
       </div>

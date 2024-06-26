@@ -187,7 +187,7 @@ function Tableventas() {
             </AlertDialogContent>
           </AlertDialog>
         </div>
-        <div>
+        <div className="overflow-y-auto overflow-x-auto">
           <table className="table border-collapse table-auto">
             <thead>
               <tr className="text-gray-700">

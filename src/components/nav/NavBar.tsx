@@ -34,6 +34,9 @@ export default function NavBar() {
               <li>
                 <Link href="/nosotros">Nosotros</Link>
               </li>
+              <li>
+                <Link href="/login">Iniciar</Link>
+              </li>
             </ul>
           </div>
           <Link className="btn btn-ghost text-gray-600" href="/">

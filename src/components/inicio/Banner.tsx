@@ -1,25 +1,28 @@
 export default function Banner() {
   return (
-    <>
-      <div className="flex flex-wrap flex-col justify-center items-center w-full h-[80vh]">
-        <section className="flex gap-20 justify-center flex-col-reverse md:flex-row md:justify-around">
-          <article className="flex flex-col gap-5 justify-center md:justify-start items-center md:items-start">
-            <p className="text-2xl md:text-4xl  text-center md:text-start text-[#171717] w-full md:w-[550px]">
-              Viaja a tu ritmo, sin prisa, sin estrés. Alquilando tu mejor
-              vehículo.
-            </p>
+    <div className="bg-gradient-to-r from-gray-50 to-gray-100 min-h-screen flex items-center">
+      <div className="container mx-auto px-4 py-16">
+        <section className="flex flex-col-reverse lg:flex-row items-center justify-around gap-12">
+          <article className="flex flex-col items-center lg:items-start text-center lg:text-left max-w-xl mx-auto lg:mx-0">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+              Viaja a tu ritmo, sin prisa, sin estrés. Alquilando tu mejor vehículo.
+            </h1>
             <a
-              className="w-[200px] px-5 py-3 bg-[#171717] hover:bg-[#252424] rounded-lg text-[#F8F8F9] cursor-pointer"
               href="/vehiculos/todos"
+              className="btn"
             >
               Comenzar reserva
             </a>
           </article>
-          <article>
-            <img src="auto2.webp" alt="logo auto banner" width="450px" />
+          <article className="w-full max-w-md lg:max-w-lg xl:max-w-xl">
+            <img 
+              src="/auto2.webp" 
+              alt="Auto banner" 
+              className="w-full h-auto object-cover rounded-lg shadow-xl"
+            />
           </article>
         </section>
       </div>
-    </>
+    </div>
   );
 }

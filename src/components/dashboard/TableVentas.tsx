@@ -38,7 +38,7 @@ function Tableventas() {
   });
 
   const [bookings, setBookings] = useState<Bookings[]>([]);
-  
+
   const [selectedVehicle, setSelectedVehicle] =
     useState<SingleValue<OptionType>>(null);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -68,8 +68,8 @@ function Tableventas() {
         setBookings(response.data);
       } catch (error) {
         console.log("Error en solicitar las reservas");
-      }finally{
-        setIsLoading(false)
+      } finally {
+        setIsLoading(false);
       }
     };
     fecthBookings();
@@ -78,13 +78,12 @@ function Tableventas() {
   if (isLoading) {
     return (
       <>
-      <div className="flex justify-center h-[80vh]">
-      <span className="loading loading-spinner loading-lg"></span>
-      </div>
+        <div className="flex justify-center h-[80vh]">
+          <span className="loading loading-spinner loading-lg"></span>
+        </div>
       </>
     );
   }
-
 
   // envio de datos hacia el servidor
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -195,28 +194,43 @@ function Tableventas() {
                 <th>Fecha inicio</th>
                 <th>fecha fin</th>
                 <th>Precio/dia</th>
+                <th>Duración</th>
+                <th>Precio total</th>
                 <th>Accion</th>
               </tr>
             </thead>
             <tbody>
-              {bookings.map((booking) => (
-                <tr className="text-gray-600" key={booking.id}>
-                  <td className="border-t border-gray-300">{booking.vehicleModel+" "+booking.vehicleBrand}</td>
-                  <td className="border-t border-gray-300">
-                    {booking.startDate}
-                  </td>
-                  <td className="border-t border-gray-300">
-                    {booking.endDate}
-                  </td>
-                  <td className="border-t border-gray-300">
-                    S/ {booking.totalPrice}
-                  </td>
-                  <td className="border-t border-gray-300">
-                    <ButtonPrint idBooking={booking.id}/>
-                  </td>
-                </tr>
-              ))}
-            </tbody>  
+              {bookings.map((booking) => {
+                const startDate = new Date(booking.startDate);
+                const endDate = new Date(booking.endDate);
+                const duration = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24));
+                const totalPrice = booking.totalPrice * duration;
+
+                return (
+                  <tr className="text-gray-600" key={booking.id}>
+                    <td className="border-t border-gray-300">
+                      {booking.vehicleBrand + " " + booking.vehicleModel}
+                    </td>
+                    <td className="border-t border-gray-300">
+                      <p className="badge badge-info shadow-lg text-white">{booking.startDate}</p>
+                    </td>
+                    <td className="border-t border-gray-300">
+                    <p className="badge badge-info shadow-lg text-white">{booking.endDate}</p>
+                    </td>
+                    <td className="border-t border-gray-300">
+                      S/ {booking.totalPrice}
+                    </td>
+                    <td className="border-t border-gray-300">{duration}/dias</td>
+                    <td className="border-t border-gray-300">
+                      <p className="badge badge-error shadow-lg text-white">S/ {totalPrice.toFixed(2)}</p>
+                    </td>
+                    <td className="border-t border-gray-300">
+                      <ButtonPrint idBooking={booking.id} />
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
           </table>
         </div>
       </div>

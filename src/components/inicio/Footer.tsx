@@ -92,7 +92,7 @@ export default function Footer() {
             >
               Politicas de cookies
             </a>
-            <a href="/servicios">Reservar</a>
+            <a href="/vehiculos/todos">Reservar</a>
             <a
               href="https://www.google.com/intl/es/policies/terms/archive/20070416/"
               target="_blank"

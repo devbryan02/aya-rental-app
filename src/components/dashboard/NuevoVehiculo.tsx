@@ -167,17 +167,17 @@ function NuevoVehicleForm() {
 
   return (
     <>
-      <div className="w-[80%] mx-auto mt-5">
-        <div className="flex mb-3 font-semibold uppercase text-xl shadow-lg rounded-lg ">
+      <div className="w-[80%] mx-auto mt-5 ">
+        <div className="flex mb-3 font-semibold  uppercase text-xl shadow-lg rounded-lg ">
           <p className="p-2 text-white bg-red-400 rounded-l-lg ">
             {params.id ? "Actualizar" : "Agregar"}
           </p>
-          <p className="p-2 bg-gray-100 text-gray-500 rounded-r-lg w-full ">
+          <p className="p-2 bg-white text-gray-500 rounded-r-lg w-full ">
             vehiculo
           </p>
         </div>
         <form onSubmit={handleSubmit}>
-          <div className="flex shadow-lg flex-wrap md:gap-10 justify-start p-5 md:p-10 rounded-box">
+          <div className="flex bg-white shadow-lg flex-wrap md:gap-10 justify-start p-5 md:p-10 rounded-box">
             <div className="flex flex-col gap-3 ">
               <label className="mx-2 text-sm text-gray-600">Marca</label>
               <input

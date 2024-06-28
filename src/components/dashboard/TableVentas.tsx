@@ -129,9 +129,9 @@ function Tableventas() {
 
   return (
     <>
-      <div className="flex gap-3 flex-col mt-3 mx-auto w-[70%] pb-10 ">
+      <div className="flex gap-3 bg-white p-5 rounded-box shadow-lg flex-col mt-3 mx-auto w-[70%] pb-10 ">
         <div>
-          <h2 className="text-3xl drop-shadow-lg text-gray-600 font-semibold uppercase">
+          <h2 className="text-3xl  text-gray-600 font-semibold uppercase">
             Generar <span className="text-warning">Reservas</span>
           </h2>
           <AlertDialog>
@@ -186,13 +186,13 @@ function Tableventas() {
             </AlertDialogContent>
           </AlertDialog>
         </div>
-        <div className="overflow-y-auto overflow-x-auto">
+        <div className="overflow-x-auto h-[370px] overflow-y-auto">
           <table className="table border-collapse table-auto">
             <thead>
               <tr className="text-gray-700">
                 <th>Vehiculo</th>
                 <th>Fecha inicio</th>
-                <th>fecha fin</th>
+                <th>Fecha fin</th>
                 <th>Precio/dia</th>
                 <th>Duración</th>
                 <th>Precio total</th>

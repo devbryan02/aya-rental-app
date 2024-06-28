@@ -29,8 +29,8 @@ export default function MenuDashboard() {
 
   return (
     <>
-      <div className="bg-transparent w-full flex p-3 gap-5 justify-around items-center ">
-        <ul className='menu bg-gray-100 menu-horizontal rounded-box shadow-lg'>
+      <div className="bg-white w-full flex p-3 gap-5 justify-around items-center ">
+        <ul className='menu bg-white menu-horizontal rounded-box'>
           <li>
           <Link href="/dashboard/vehiculos" className='font-bold uppercase text-gray-600'>
           <MdDashboard size={20}/>
@@ -38,7 +38,7 @@ export default function MenuDashboard() {
           </Link>
           </li>
         </ul>
-        <ul className="menu bg-gray-100 menu-horizontal rounded-box shadow-lg">
+        <ul className="menu bg-white menu-horizontal rounded-box ">
           <li>
             <Link className="text-gray-600" href="/dashboard/vehiculos">
               <FaCar size={20} />

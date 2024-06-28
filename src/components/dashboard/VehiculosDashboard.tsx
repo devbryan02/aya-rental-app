@@ -73,9 +73,9 @@ export default function VehiculosDashboard() {
 
   return (
     <>
-      <div className="flex gap-3 flex-col mt-3 mx-auto w-[70%] pb-10">
+      <div className="flex bg-white p-5 shadow-lg rounded-box gap-3 flex-col mt-3 mx-auto w-[70%] pb-10">
         <div>
-          <h2 className="text-3xl drop-shadow-lg uppercase text-gray-600 font-semibold mb-3">
+          <h2 className="text-3xl  uppercase text-gray-600 font-semibold mb-3">
             Inventario vehiculos{" "}
             <span className="text-red-400 uppercase font-semibold">
               Aya rental

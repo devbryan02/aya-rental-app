@@ -33,7 +33,7 @@ const VehicleSelect: React.FC<VehicleSelectProps> = ({ selectedOption, setSelect
         const vehicles = await fetchData();
         const formattedOptions = vehicles.map((vehicle: { id: string; model: string; brand: string }) => ({
           value: vehicle.id, // Suponiendo que cada vehículo tiene un campo `id`
-          label: `${vehicle.model} ${vehicle.brand}` // Ajusta según el campo que quieras mostrar como etiqueta
+          label: `${vehicle.brand} ${vehicle.model}` // Ajusta según el campo que quieras mostrar como etiqueta
         }));
         setOptions(formattedOptions);
         setIsLoading(false); // Data has been loaded
